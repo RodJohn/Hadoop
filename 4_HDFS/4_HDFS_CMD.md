@@ -1,11 +1,10 @@
 
 
-# 操作
-
-
 # 命令
 
-    可以通过hadoop命令
+    通过命令操作HDFS
+    
+# 常用
 
 创建目录
     
@@ -27,13 +26,20 @@
 	
     hadoop fs -get /user/output/ /home/hadoop_tp/ 
 
+删除文件
 
+    hadoop fs -rm /test1/test.txt
 
 
 # 管理界面
 
-    HDFS管理界面(端口50070)可以查找和下载上传的文件
+作用
+
+    查找和下载文件
+    查看文件的存储信息
+
+入口
+
+    HDFS管理界面(端口50070)
+    Utilities->Browse the file system
     
-
-
-# spring-data-hadoop

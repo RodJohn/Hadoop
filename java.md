@@ -1,3 +1,0 @@
-
-
-# spring-data-hadoop

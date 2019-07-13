@@ -1,9 +1,6 @@
 
 
   
-
-  # 流程
-  
 # HDFS读写模型
 
 
@@ -15,7 +12,7 @@
 
  # 写流程
  
-     客户端向NameNode请求存储数据
+     客户端向NameNode请求写数据
       （客户端切割文件）
      NameNode会返回用于存储的DataNode集合 并记录在文件分配表
      客户端向对应DataNode存储数据  

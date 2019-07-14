@@ -2,7 +2,7 @@
 
 # MapReduce
 
-图例
+![](https://github.com/RodJohn/Hadoop/blob/master/pic/mapreduce.png?1563067218533)
 
 
 	MapReduce一般包括Split、Map、Shuffle、Reduce四个流程
@@ -38,7 +38,7 @@
     shuffle对map产生的键值对进行分区排序
     最后提供给reduce或者自己处理
 
-图
+![](https://github.com/RodJohn/Hadoop/blob/master/pic/shuffle.png?1563067279407)
 
 ## 分区排序
 

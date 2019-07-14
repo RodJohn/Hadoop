@@ -11,7 +11,7 @@
 图例
 
     
-    一个JobTracker多个TaskTracker
+   MapReduce由一个JobTracker和多个TaskTracker组成，
 
 
 ## 角色
@@ -46,11 +46,18 @@ Client
 # hadoop2
 
     	
-图例
+![](https://github.com/RodJohn/Hadoop/blob/master/pic/mrstruct2.png?)
 
+MapReduce存在的问题响系统
+JobTracker访问压力大，影响系统扩展性
+难以支持除MapReduce之外的计算框架，比如Spark、Storm等
 
-MRv2：On YARN
-YARN：解耦资源与计算
+     提出了全新的资源管理框架YARN，它将JobTracker中的资源管理和作业控制功能分开，
+     分别由组件ResourceManager和ApplicationMaster实现。
+     其中，ResourceManager负责所有应用程序的资源分配，而ApplicationMaster仅负责管理一个应用程序。
+     相比于 Hadoop 1.0，Hadoop 2.0框架具有更好的扩展性、可用性、可靠性、向后兼容性和更高的资源利用率
+     以及能支持除了MapReduce计算框架外的更多的计算框架，
+     Hadoop 2.0目前是业界主流使用的Hadoop版本。
 
 ## 角色
 
@@ -70,7 +77,7 @@ Container：
     【节点NM，CPU,MEM,I/O大小，启动命令】
     默认NodeManager启动线程监控Container大小，超出申请资源额度，kill
 
-ApplicationMaster
+ApplicationMaster-Container
 
     作业为单位，避免单点故障，负载到不同的节点
     创建Task需要和RM申请资源（Container  /MR 1024MB）

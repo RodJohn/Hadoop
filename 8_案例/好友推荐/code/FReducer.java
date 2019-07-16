@@ -1,4 +1,4 @@
-package com.sxt.hadoop.mr.fof;
+package com.john.fof;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ public class FReducer  extends  Reducer<Text, IntWritable, Text, Text> {
 			if(v.get()==0){
 				//hadoop:hello  0
 				flg=1;
-				break
+//				break;
 			}
 			sum+=v.get();
 		}
@@ -31,5 +31,4 @@ public class FReducer  extends  Reducer<Text, IntWritable, Text, Text> {
 			context.write(key, rval);
 		}
 	}
-
 }

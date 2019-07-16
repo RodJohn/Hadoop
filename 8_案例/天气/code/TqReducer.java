@@ -1,4 +1,4 @@
-package com.sxt.hadoop.mr.tq;
+package com.john.tianqi;
 
 import java.io.IOException;
 
@@ -15,12 +15,10 @@ public class TqReducer extends Reducer<TQ, Text, Text, Text> {
 	protected void reduce(TQ key, Iterable<Text> vals, Context context)
 			throws IOException, InterruptedException {
 		
-		
 		int flg=0;
 		int day=0;
 		
 		for (Text v : vals) {
-			
 			if(flg==0){
 				day=key.getDay();	
 				
@@ -28,7 +26,6 @@ public class TqReducer extends Reducer<TQ, Text, Text, Text> {
 				rval.set(key.getWd()+"");
 				context.write(rkey,rval );
 				flg++;
-				
 			}
 			if(flg!=0 && day != key.getDay()){
 				
@@ -37,13 +34,7 @@ public class TqReducer extends Reducer<TQ, Text, Text, Text> {
 				context.write(rkey,rval );
 				break;
 			}
-				
-			
-			
-			
 		}
-		
-		
 	}
 
 }

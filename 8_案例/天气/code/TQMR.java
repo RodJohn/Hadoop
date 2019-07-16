@@ -1,4 +1,4 @@
-package com.sxt.hadoop.mr.tq;
+package com.john.tianqi;
 
 import java.io.IOException;
 
@@ -10,60 +10,34 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class TQMR {
-	
-	
 	public static void main(String[] args) throws Exception {
-		
-		
-		
 		//1,conf
 		Configuration conf = new Configuration(true);
-		
 		//2,job
 		Job job = Job.getInstance(conf);
 		job.setJarByClass(TQMR.class);
-		
 		//3,input,output
-		
-		Path input = new Path("/tq/input");
+		Path input = new Path("/user/input/tianqi.txt");
 		FileInputFormat.addInputPath(job, input);
-		
-		Path output = new Path("/tq/output");
+		Path output = new Path("/user/output/tianqi");
 		if(output.getFileSystem(conf).exists(output)){
 			output.getFileSystem(conf).delete(output,true);
 		}
 		FileOutputFormat.setOutputPath(job, output );
-		
-		
 		//4,map
 		job.setMapperClass(TqMapper.class);
 		job.setMapOutputKeyClass(TQ.class);
 		job.setMapOutputValueClass(Text.class);
-
 		//6,other:sort,part..,group...
 //		job.setPartitionerClass(TqPartitioner.class);
 		job.setSortComparatorClass(TqSortComparator.class);
 		job.setGroupingComparatorClass(TqGroupingComparator.class);
-
 		//5,reduce
 		job.setReducerClass(TqReducer.class);
 //		job.setNumReduceTasks(2);
-
-
-		job.setCombinerClass(TqReducer.class);
-		job.setCombinerKeyGroupingComparatorClass(TqGroupingComparator.class);
+//		job.setCombinerClass(TqReducer.class);
+//		job.setCombinerKeyGroupingComparatorClass(TqGroupingComparator.class);
 		//7,submit
-		
 		job.waitForCompletion(true);
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-
 }

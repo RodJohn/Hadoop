@@ -1,4 +1,4 @@
-package com.sxt.hadoop.mr.tq;
+package com.john.tianqi;
 
 import java.io.DataInput;
 import java.io.DataOutput;

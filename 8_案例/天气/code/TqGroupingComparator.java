@@ -1,4 +1,4 @@
-package com.sxt.hadoop.mr.tq;
+package com.john.tianqi;
 
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
@@ -20,8 +20,5 @@ public class TqGroupingComparator  extends WritableComparator {
 				return Integer.compare(t1.getMonth(), t2.getMonth());
 			}			
 			return c1;
-			
-			
 	}
-	
 }
